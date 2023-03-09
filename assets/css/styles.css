@@ -9,22 +9,65 @@
 }
 
 * {
-    box-sizing: inherit;
-    
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 html {
     font-size: 62.5%; /* 100% = 16px */
     line-height: 1.6rem;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+
 /*Grid*/
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
 
+.column-5 {
+    float: left;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: 20%;
+}
 
+.column-5_4 {
+    float: left;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: 80%;
+}
+
+.column-3 {
+    float: left;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: 33.3333%;
+}
+
+.column-2 {
+    float: left;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: 50%;
+}
 
 /*Main*/
+.content {
+    padding: 90px 40px;
+}
+
+.content-heading {
+    padding-bottom: 70px;
+    text-align: center;
+    margin: 0 40px;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+}
 /*Heading*/
 .heading {
     position: fixed;
@@ -36,9 +79,12 @@ html {
 
 .navbar {
     background-color: var(--black-color);
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar-list {
+    position: relative;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -64,15 +110,58 @@ html {
     font-size: 1.8rem;
 }
 
+/*Mobile Navbar*/
+.subnav-checkbox {
+    position: absolute;
+    right: -43%;
+    opacity: 0;
+}
+
+input[type=checkbox] {
+    width: 100%;
+    height: 2rem;
+}
+
+.subnav-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    height: 55px;
+    display: none;
+}
+
+.subnav-mobile div {
+    margin: 0 35px;
+}
+
+.navbar-item-mobile-icon {
+    color: var(--white-color);
+    font-size: 26px;
+}
+
+.navbar-mobile-list {
+    position: absolute;
+    background-color: var(--black-color);
+    list-style: none;
+    top: 100%;
+    line-height: 50px;
+    height: 150px;
+    text-align: left;
+    padding: 0 10px;
+    width: 100%;
+    padding-left: 35px;
+    box-shadow: 0 1px 2px rgb(23, 20, 20), 0.9 ;
+    display: none;
+}
+
 /*About*/
 #about {
     margin-top: 55px;
-    padding: 20px 40px 60px;
 }
 
 .about-heading {
-    text-align: center;
-    margin: 40px;
+   
 }
 
 .about-content {
@@ -81,20 +170,19 @@ html {
 }
 
 .about-avt {
-    width: 200px;
-    margin-right: 50px;
+    width: 100%;
 }
 
 .about-info {
-    margin: auto;
+    padding-left: 10px;
     color: var(--text-color);
-    font-size: 1.5rem;
+    line-height: 30px;
+    font-size: 1.3rem;
 }
 
 /*Story*/
 #story {
     background-color: #000;
-    padding: 20px 40px 60px;
 }
 
 .story-list {
@@ -103,30 +191,52 @@ html {
 
 .story-heading {
     color: var(--white-color);
-    text-align: center;
-    margin: 40px;
 }
 
-.stoty-item {
+.story-item {
     background-color: var(--white-color);
+    margin: 8px;
 }
 
-.story-item i {
+.story-item p {
+    height: 95px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+}
+
+.story-item-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-item-btn button {
+    background: rgba(0,0,0,0.5);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
     color: var(--white-color);
+    font-size: 3rem;
 }
 
-.stoty-item img{
+.story-item-btn button:hover .story-item-btn-icon {
+    color: #ccc;
+}
+
+.story-item img {
     width: 100%;
     display: block;
-}
-
-.stoty-item:nth-child(2) {
-    margin: 0 30px;
 }
 
 .story-info {
     font-size: 1.2rem;
     margin: 22px;
+}
+
+.story-info h2 {
+    margin-bottom: 8px;
 }
 
 .story-address {
@@ -151,22 +261,22 @@ html {
 
 /*Contact*/
 #contact {
-    padding: 20px 40px 60px;
+
 }
 
 .contact-heading {
-    text-align: center;
-    margin: 40px;
+    
 }
 
 .contact-content {
     display: flex;
     justify-content: space-between;
-    margin: 50px;
+    margin: 0 70px;
 }
 
 .contact-info {
-    margin-left: 20px;
+    line-height: 50px;
+    margin: auto;
 }
 
 .contact-info-list {
@@ -176,29 +286,35 @@ html {
 .contact-info-item {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .contact-info-item i {
+    width: 30px;
     font-size: 1.8rem;
     margin: 0 9px;
 }
 
 .contact-form {
-    margin: auto;
+
 }
 
 .contact-form-info {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .contact-form-input {
     padding: 9px;
+    width: 49.7%;
+}
+
+.input-half {
+    width: 49.7%;
 }
 
 .contact-form-mess {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .contact-form-mess-input {
